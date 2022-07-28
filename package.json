@@ -1,13 +1,13 @@
 {
-  "name": "express-auth-mongoose-boilerplate",
+  "name": "icepops-pets-api",
   "version": "1.0.0",
-  "description": "Auth boilerplate for mongoose express using token auth",
+  "description": "An API server having to do with pets",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Timm Schoenborn",
+  "author": "Casey Jones",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
