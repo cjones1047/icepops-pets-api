@@ -30,10 +30,10 @@ const router = express.Router()
 // INDEX
 // GET /pets
 router.get('/pets', (req, res, next) => {
-	// because we want everyone to see the pets whether they're logged in or not, we deleted 'requireToken' as a parameter
-	// if we wanted to protect these resources, then we can add that middleware back in
-		// And we would place it back between the route and the callback function (second argument)
+	// we want everyone to see the pets, whether they're logged in or not.
+	// if we wanted to protect these resources, then we can add that middleware back in. and we would place it between the route and the callback function.(second argument)
 	Pet.find()
+		.populate('owner')
 		.then((pets) => {
 			// `pets` will be an array of Mongoose documents
 			// we want to convert each one to a POJO, so we use `.map` to
@@ -51,6 +51,7 @@ router.get('/pets', (req, res, next) => {
 router.get('/pets/:id', (req, res, next) => {
 	// req.params.id will be set based on the `:id` in the route
 	Pet.findById(req.params.id)
+		.populate('owner')
 		.then(handle404)
 		// if `findById` is succesful, respond with 200 and "pet" JSON
 		.then((pet) => res.status(200).json({ pet: pet.toObject() }))
