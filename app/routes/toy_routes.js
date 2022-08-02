@@ -72,7 +72,6 @@ router.delete('/toys/:petId/:toyId', requireToken, (req, res, next) => {
 
     // then we find the pet
     Pet.findById(petId)
-
     // handle 404
         .then(handle404)
     // do stuff with the toy (in this case, delete it)
